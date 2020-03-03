@@ -110,11 +110,15 @@ function agregarListeners() {
     });
 
     $("#formBuscar").on("submit", buscarRecurso);
+    $("#formBuscar").keyup("type", sugerirArticulos);
+    $("#formBuscar").focusout("loseFocus", ocultarSugerencias);
+    $(".sugerencia").click("clicked", cambiarValorBusqueda)
 
     if (CARGA_DINAMICA) {
         $(document).on("scrollstop", verificarScroll);
     }
 
+    
     $("#btnBorrarCache").on('click', function () {
         COLECCIONES = [];
         COMUNIDADES = [];

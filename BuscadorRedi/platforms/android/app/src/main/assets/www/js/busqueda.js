@@ -19,6 +19,44 @@ function buscarRecurso(e) {
     ocultarCargando();
 }
 
+function sugerirArticulos (event)  {
+    event.preventDefault();
+    var consulta = $("#txtBuscar").val();
+    var data = {
+        consulta: consulta,
+        modelo: INFORMACION.modelo,
+        plataforma: INFORMACION.plataforma,
+        facultad: INFORMACION.facultad
+    }
+    /*
+    $.ajax( datosAjaxPOST(URL_SOLR, data) )
+        .done(function (resp) {
+    	    mostrarSugerencias(resp);
+        });
+    */
+   mostrarSugerencias();
+}
+
+function mostrarSugerencias () {
+    let articulos = ['Comercio internacional', 'Aduanas portuarias', 'Chocokrispis de colores'];
+    let sugerencias = '';
+    articulos.forEach(articulo => {
+        sugerencias += '<li class="sugerencia" onclick="cambiarValorBusqueda(event)">'+articulo+'</li>';
+    });
+
+    $("#autoComplete").html(sugerencias);
+    $("#autoComplete").css("visibility", "visible");
+}
+
+function ocultarSugerencias (event) {
+    $("#autoComplete").css("visibility", "hidden");
+}
+
+function cambiarValorBusqueda (event) {
+    $("#txtBuscar").val(event.target.innerHTML);
+    $("#txtBuscar").focus();
+}
+
 function llenarListaBusqueda(resp) {
     
     var datos = resp.response;

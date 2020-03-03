@@ -58,3 +58,25 @@ body {
 html .ui-bar-a, html .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit{
     border-bottom: solid 3px #997923;
 }
+
+#autoComplete{
+    background-color: white;
+    list-style-type: none;
+    position: absolute;
+    margin-left: 11px;
+    margin-top: -6px;
+    width: 79%;
+    padding:0;
+}
+
+.sugerencia{
+    border-width: 0px 1px 1px 1px;
+    background-color: white;
+    border-color: #2c3e50;
+    border-style: solid;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0px;
+    width: 100%;
+}
